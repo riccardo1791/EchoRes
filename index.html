@@ -11,22 +11,38 @@
             color: #333;
             margin: 0;
             display: flex;
+            flex-direction: column;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            flex: 1;
+            height: 100vh;
+        }
+        .left-panel {
+            width: 250px;
+            background: #e3e8ef;
+            padding: 20px;
+            box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
         h1 {
-            font-size: 2.5em;
-            margin-top: 30px;
+            font-size: 2em;
+            margin: 0;
             color: #444;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
         }
         p {
             font-size: 1.2em;
             color: #666;
+            margin-bottom: 20px;
         }
         button {
-            display: block;
             width: 230px;
             height: 50px;
-            margin: 10px auto;
+            margin: 10px 0;
             padding: 10px;
             font-size: 14px;
             font-weight: bold;
@@ -43,24 +59,17 @@
             transform: scale(1.05);
             box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
         }
-        .left-panel {
-            width: 250px;
-            background: #e3e8ef;
-            padding: 20px;
-            box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
-        }
         .image-container {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             padding: 10px;
         }
         img {
             display: none;
-            height: 700px;
-            width: auto;
+            max-height: 90vh;
+            max-width: 90vw;
             border-radius: 15px;
             box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
             transition: transform 0.3s;
@@ -80,31 +89,49 @@
             font-size: 0.9em;
             color: #888;
         }
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .left-panel {
+                width: 100%;
+                align-items: center;
+                padding: 10px;
+            }
+            button {
+                width: 90%;
+            }
+            .image-container {
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="left-panel">
-        <h1>Echo Labor Uniklinik Köln</h1>
-        <p>Ressourcen</p>
-        <button onclick="showImage('image6')">TTE Views</button>
-        <button onclick="showImage('image1')">Wandbewegungsstörung</button>
-        <button onclick="showImage('image2')">Aortenprothese mit erhöhten Gradienten</button>
-        <button onclick="showImage('image8')">Paravalvuläre Leckage nach AKE</button>
-        <button onclick="showImage('image3')">Segmente der Mitralklappe</button>
-        <button onclick="showImage('image4')">Klassifizierung nach Carpentier</button>
-        <button onclick="showImage('image5')">Trikuspidalklappeninsuffizienz</button>
-        <button onclick="showImage('image7')">Pulmonale Hypertonie</button>
-    </div>
+    <div class="container">
+        <div class="left-panel">
+            <h1>Echo Labor</h1>
+            <p>Uniklinik Köln</p>
+            <button onclick="showImage('image6')">TTE Views</button>
+            <button onclick="showImage('image1')">Wandbewegungsstörung</button>
+            <button onclick="showImage('image2')">Aortenprothese mit erhöhten Gradienten</button>
+            <button onclick="showImage('image8')">Paravalvuläre Leckage nach AKE</button>
+            <button onclick="showImage('image3')">Segmente der Mitralklappe</button>
+            <button onclick="showImage('image4')">Klassifizierung nach Carpentier</button>
+            <button onclick="showImage('image5')">Trikuspidalklappeninsuffizienz</button>
+            <button onclick="showImage('image7')">Pulmonale Hypertonie</button>
+        </div>
 
-    <div class="image-container">
-        <img id="image6" class="full-size" src="./images/image6.jpg" alt="Image 6">
-        <img id="image1" src="./images/image1.png" alt="Image 1">
-        <img id="image2" src="./images/image2.png" alt="Image 2">
-        <img id="image3" src="./images/image3.jpg" alt="Image 3">
-        <img id="image4" src="./images/image4.jpg" alt="Image 4">
-        <img id="image5" src="./images/image5.png" alt="Image 5">
-        <img id="image7" src="./images/image7.jpeg" alt="Image 7">
-        <img id="image8" src="./images/image8.png" alt="Image 8">
+        <div class="image-container">
+            <img id="image6" class="full-size" src="./images/image6.jpg" alt="Image 6">
+            <img id="image1" src="./images/image1.png" alt="Image 1">
+            <img id="image2" src="./images/image2.png" alt="Image 2">
+            <img id="image3" src="./images/image3.jpg" alt="Image 3">
+            <img id="image4" src="./images/image4.jpg" alt="Image 4">
+            <img id="image5" src="./images/image5.png" alt="Image 5">
+            <img id="image7" src="./images/image7.jpeg" alt="Image 7">
+            <img id="image8" src="./images/image8.png" alt="Image 8">
+        </div>
     </div>
 
     <script>
